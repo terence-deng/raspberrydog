@@ -1,0 +1,53 @@
+#!/bin/sh 
+### BEGIN INIT INFO 
+# Provides:          raspberrydog 
+# Required-Start:    $network $local_fs $remote_fs 
+# Required-Stop::    $network $local_fs $remote_fs 
+# Should-Start:      $all 
+# Should-Stop:       $all 
+# Default-Start:     2 3 4 5 
+# Default-Stop:      0 1 6 
+# Short-Description: Start raspberrydog at boot time
+# Description:       Raspberry Dog - Watch dog for Raspberry Pi 
+### END INIT INFO 
+NAME=raspberrydog 
+BINARY=/usr/local/sbin/$NAME 
+PIDFILE=/var/run/$NAME.pid
+ARGS="" 
+USER="root" 
+
+test -f $BINARY || exit 0 
+
+. /lib/lsb/init-functions 
+
+start(){ 
+	start-stop-daemon --background --start --oknodo --quiet --make-pidfile --pidfile $PIDFILE --chuid $USER --exec $BINARY -- $ARGS 
+}
+stop(){ 
+	start-stop-daemon --stop --quiet --pidfile $PIDFILE 
+}
+
+case "$1" in
+	start)
+		log_daemon_msg "Starting watchdog" "$NAME"
+		start
+		log_end_msg $?
+		;;
+	stop)
+		log_daemon_msg "Stopping watchdog" "$NAME"
+		stop
+		log_end_msg $?
+		;;
+	restart|reload|force-reload)
+		log_daemon_msg "Restarting watchdog" "$NAME"
+		stop
+		start
+		log_end_msg $?
+		;;
+	status)
+		;;
+	*)      log_action_msg "Usage: /etc/init.d/raspberrydog {start|stop|restart|reload|force-reload|status}"
+		exit 2
+		;;
+esac
+exit 0

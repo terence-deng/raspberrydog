@@ -16,3 +16,8 @@
 *.exe
 *.out
 *.app
+
+# Misc
+*~
+*.log
+*.tmp
