@@ -23,6 +23,7 @@ make install
 sudo raspberrydog
 ```
 To shutdown the Raspberry Pi, you can connet 12th pin (GPIO 1/GPIO18) with 11th pin (GPIO 0/GPIO17) 
+```
 +----------+-Rev2-+------+--------+------+-------+
 | wiringPi | GPIO | Phys | Name   | Mode | Value |
 +----------+------+------+--------+------+-------+
@@ -48,7 +49,7 @@ To shutdown the Raspberry Pi, you can connet 12th pin (GPIO 1/GPIO18) with 11th 
 |     19   |  30  |   5  | GPIO10 | IN   | Low   |
 |     20   |  31  |   6  | GPIO11 | IN   | Low   |
 +----------+------+------+--------+------+-------+
-
+```
 
 Start it at boot time
 -------------
