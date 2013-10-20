@@ -6,6 +6,7 @@ What it is
 ----------
 Watch dog for raspberry pi
 * shutdown raspberry pi when the 12th pin (GPIO 1/GPIO18) is set as high
+* reboot raspberry pi when the 13th pin (GPIO 2/GPIO27) is set as high
 
 Build Requirements
 ------------------
@@ -29,7 +30,7 @@ To shutdown the Raspberry Pi, you can connet 12th pin (GPIO 1/GPIO18) with 11th 
 +----------+------+------+--------+------+-------+
 |      0   |  17  |  11  | GPIO 0 | OUT  | High  |   ----> 11th pin
 |      1   |  18  |  12  | GPIO 1 | IN   | Low   |   ----> 12th pin
-|      2   |  27  |  13  | GPIO 2 | OUT  | High  |
+|      2   |  27  |  13  | GPIO 2 | IN   | Low   |   ----> 13th pin
 |      3   |  22  |  15  | GPIO 3 | IN   | Low   |
 |      4   |  23  |  16  | GPIO 4 | IN   | Low   |
 |      5   |  24  |  18  | GPIO 5 | IN   | Low   |

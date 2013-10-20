@@ -2,8 +2,8 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([raspberrydog], [0.1], [deng.tooling@gmail.com])
-AM_INIT_AUTOMAKE(raspberrydog, 0.1)
+AC_INIT([raspberrydog], [0.2], [deng.tooling@gmail.com])
+AM_INIT_AUTOMAKE(raspberrydog, 0.2)
 AC_CONFIG_SRCDIR([src/raspberrydog.c])
 
 # Checks for programs.
